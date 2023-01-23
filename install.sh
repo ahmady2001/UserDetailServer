@@ -14,11 +14,11 @@ mkdir /usr/local/user-detail-server
 mkdir /usr/local/user-detail-server/ui
 cd /usr/local/user-detail-server
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -o UserDetailServer.py
 
 cd /etc/systemd/system
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -o user-detail-server.service
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
