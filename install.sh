@@ -10,6 +10,13 @@ pip install datetime
 pip install flask
 pip install waitress
 
+# remove oldFiles
+
+systemctl disable user-detail-server
+systemctl stop user-detail-server
+rm -rf /usr/local/user-detail-server
+rm -f /etc/systemd/system/user-detail-server.service
+
 mkdir /usr/local/user-detail-server
 mkdir /usr/local/user-detail-server/ui
 cd /usr/local/user-detail-server
@@ -24,13 +31,10 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/mai
 
 cd /etc/systemd/system
 
-systemctl disable user-detail-server
-systemctl stop user-detail-server
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -O user-detail-server.service
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
-systemctl restart user-detail-server
 
 cd $cwd
 rm install.sh
