@@ -7,7 +7,7 @@
 - Step 1
 
 ```
-sudo apt update -y && apt install wget -y
+sudo apt update -y && sudo apt install wget -y
 ```  
 
 - Step 2
@@ -19,5 +19,5 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/instal
 - Step 3
 
 ```
-sudo chmod +x install.sh && bash install.sh
+sudo chmod +x install.sh && sudo bash install.sh
 ``` 
