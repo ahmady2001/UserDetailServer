@@ -18,3 +18,6 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDe
 cd /etc/systemd/system
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.sevice
+
+systemctl enable user-detail-server
+systemctl start user-detail-server
