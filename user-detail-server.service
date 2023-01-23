@@ -1,0 +1,12 @@
+[Unit]
+Description=user-detail-server service
+After=network.target
+Wants=network.target
+
+[Service]
+type=simple
+WorkingDirectory=/usr/local/user-detail-server/
+ExecStart=/bin/bash -c 'python3 /usr/local/user-detail-server/UserDetailServer.py'
+
+[Install]
+WantedBy=multi-user.target
