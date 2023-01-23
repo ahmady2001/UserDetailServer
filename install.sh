@@ -16,6 +16,12 @@ cd /usr/local/user-detail-server
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -o UserDetailServer.py
 
+cd /usr/local/user-detail-server/ui
+
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/index.html -o index.html
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/style.css -o style.css
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/main.js -o main.js
+
 cd /etc/systemd/system
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -o user-detail-server.service
