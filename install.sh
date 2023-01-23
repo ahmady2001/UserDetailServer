@@ -28,6 +28,7 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-d
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
+systemctl restart user-detail-server
 
 cd $cwd
 rm install.sh
