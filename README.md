@@ -4,14 +4,8 @@
 
 # Install
 
-- Install dependensies
+- Install dependensies and Install App
 
 ```
-sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/install.sh -o install.sh
+sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/install.sh -o install.sh && sudo chmod +x install.sh && sudo bash install.sh
 ```  
-
-- Install App
-
-```
-sudo chmod +x install.sh && sudo bash install.sh
-``` 
