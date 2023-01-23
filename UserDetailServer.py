@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 import math
-from flask import Flask
+from flask import Flask, render_template
 from waitress import serve
 
 dbLoc = '/etc/x-ui/x-ui.db'
@@ -16,6 +16,10 @@ def convert_size(size_bytes):
    p = math.pow(1024, i)
    s = round(size_bytes / p, 2)
    return "%s %s" % (s, size_name[i])
+
+@app.route('/')
+def main():
+    return render_template('/usr/local/user-detail-server/ui/index.html')
 
 @app.route('/<string:user>')
 def checker(user):
