@@ -24,6 +24,8 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/mai
 
 cd /etc/systemd/system
 
+systemctl disable user-detail-server
+systemctl stop user-detail-server
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -O user-detail-server.service
 
 systemctl enable user-detail-server
