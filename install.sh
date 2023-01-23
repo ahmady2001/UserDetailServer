@@ -2,6 +2,8 @@
 
 # just for debian base distributions
 
+cwd=$(pwd)
+
 apt install python3 -y
 apt install pip -y
 pip install datetime
@@ -20,3 +22,6 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-d
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
+
+cd cwd
+rm install.sh
