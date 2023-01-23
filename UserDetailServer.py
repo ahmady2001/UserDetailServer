@@ -21,7 +21,7 @@ def convert_size(size_bytes):
 def main():
     return render_template('/usr/local/user-detail-server/ui/index.html')
 
-@app.route('/<string:user>')
+@app.route('/api/<string:user>')
 def checker(user):
     query = f"SELECT remark,down,up,total,expiry_time,enable FROM inbounds WHERE remark='{user}';"
     con = sqlite3.connect(dbLoc)
