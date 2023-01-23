@@ -14,11 +14,11 @@ pip install waitress
 
 systemctl disable user-detail-server
 systemctl stop user-detail-server
-rm -rf /usr/local/user-detail-server
-rm -f /etc/systemd/system/user-detail-server.service
+rm -rfv /usr/local/user-detail-server
+rm -fv /etc/systemd/system/user-detail-server.service
 
-mkdir /usr/local/user-detail-server
-mkdir /usr/local/user-detail-server/templates
+mkdir /usr/local/user-detail-server -v
+mkdir /usr/local/user-detail-server/templates -v
 cd /usr/local/user-detail-server
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -O UserDetailServer.py
@@ -37,4 +37,4 @@ systemctl enable user-detail-server
 systemctl start user-detail-server
 
 cd $cwd
-rm install.sh
+rm install.sh -v
