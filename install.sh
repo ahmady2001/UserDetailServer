@@ -19,6 +19,7 @@ rm -fv /etc/systemd/system/user-detail-server.service
 
 mkdir /usr/local/user-detail-server -v
 mkdir /usr/local/user-detail-server/templates -v
+mkdir /usr/local/user-detail-server/static -v
 cd /usr/local/user-detail-server
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -O UserDetailServer.py
@@ -26,6 +27,9 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDe
 cd /usr/local/user-detail-server/templates
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/templates/index.html -O index.html
+
+cd /usr/local/user-detail-server/static
+
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/style.css -O style.css
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/script.js -O script.js
 
