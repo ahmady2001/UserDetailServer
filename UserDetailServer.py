@@ -19,7 +19,7 @@ def convert_size(size_bytes):
 
 @app.route('/')
 def main():
-    return render_template('/ui/index.html')
+    return render_template('index.html')
 
 @app.route('/api/<string:user>')
 def checker(user):
