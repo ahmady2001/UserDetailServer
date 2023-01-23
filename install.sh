@@ -4,7 +4,6 @@
 
 apt install python3 -y
 apt install pip -y
-apt install wget
 pip install datetime
 pip install flask
 pip install waitress
@@ -17,7 +16,7 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDe
 
 cd /etc/systemd/system
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.sevice
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
