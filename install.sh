@@ -27,7 +27,7 @@ cd /usr/local/user-detail-server/templates
 
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/templates/index.html -O index.html
 wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/style.css -O style.css
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/script.js -O main.js
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/script.js -O script.js
 
 cd /etc/systemd/system
 
