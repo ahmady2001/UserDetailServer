@@ -14,17 +14,17 @@ mkdir /usr/local/user-detail-server
 mkdir /usr/local/user-detail-server/ui
 cd /usr/local/user-detail-server
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -o UserDetailServer.py
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/UserDetailServer.py -O UserDetailServer.py
 
 cd /usr/local/user-detail-server/ui
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/index.html -o index.html
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/style.css -o style.css
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/main.js -o main.js
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/index.html -O index.html
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/style.css -O style.css
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/ui/main.js -O main.js
 
 cd /etc/systemd/system
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -o user-detail-server.service
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/user-detail-server.service -O user-detail-server.service
 
 systemctl enable user-detail-server
 systemctl start user-detail-server
