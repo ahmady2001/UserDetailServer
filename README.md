@@ -4,19 +4,13 @@
 
 # Install
 
-- Step 1
+- Install dependensies
 
 ```
-sudo apt update -y && sudo apt install wget -y
+sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/install.sh
 ```  
 
-- Step 2
-
-```
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/install.sh
-``` 
-
-- Step 3
+- Install App
 
 ```
 sudo chmod +x install.sh && sudo bash install.sh
