@@ -4,8 +4,7 @@ import math
 from flask import Flask, render_template
 from waitress import serve
 
-#dbLoc = '/etc/x-ui/x-ui.db'
-dbLoc = 'C:/Users/ILYA/x-ui.db'
+dbLoc = '/etc/x-ui/x-ui.db'
 
 app = Flask(__name__)
 
