@@ -4,7 +4,8 @@ import math
 from flask import Flask, render_template
 from waitress import serve
 
-dbLoc = '/etc/x-ui/x-ui.db'
+#dbLoc = '/etc/x-ui/x-ui.db'
+dbLoc = 'C:/Users/ILYA/x-ui.db'
 
 app = Flask(__name__)
 
@@ -34,18 +35,24 @@ def checker(user):
     userName = result[0]
     downloaded = convert_size(result[1])
     uploaded = convert_size(result[2])
+    usedTraffic = convert_size(result[1] + result[2])
     if (result[3] == 0):
         totalBandwith = "Unlimited"
+        remainTraffic = "Unlimited"
     else:
         totalBandwith = convert_size(result[3])
+        if ((result[3] - (result[1] + result[2])) >= 0):
+            remainTraffic = convert_size(result[3] - (result[1] + result[2]))
+        else:
+            remainTraffic = convert_size(0)
     if (result[4] == 0):
         expireDate = "Unlimited"
     else:
         expireDate = datetime.fromtimestamp(int((result[4] / 1000)))
     if (result[5] == 1):
-        enable = True
+        enable = "On"
     else:
-        enable = False
+        enable = "Off"
 
     dicResult = {
     "remark": userName,
@@ -53,7 +60,9 @@ def checker(user):
     "up": uploaded,
     "total": totalBandwith,
     "expiry_time": expireDate,
-    "enable": enable
+    "enable": enable,
+    "used": usedTraffic,
+    "remain": remainTraffic
     }
     return dicResult
 

@@ -8,7 +8,33 @@
     <title>Account Checker</title>
 </head>
 <body>
-    <h1>Pass</h1>
+    <div>
+        <label>Entr your username:</label><br>
+        <input type="text" id="user"><br>
+        <input type="submit" id="submit" value="Submit">
+    </div>
+    <div id="error_show">
+        <label>ErrorStatus:</label><br>
+        <label id="ErrorStatus_show">No Error reported.</label><br>
+    </div>
+    <div id="detailShow">
+        <label>Username:</label><br>
+        <label id="Username_show">"N/A"</label><br>
+        <label>Status:</label><br>
+        <label id="Status_show">"N/A"</label><br>
+        <label>Download:</label><br>
+        <label id="Download_show">"N/A"</label><br>
+        <label>Upload:</label><br>
+        <label id="Upload_show">"N/A"</label><br>
+        <label>ServiceTraffic:</label><br>
+        <label id="ServiceTraffic_show">"N/A"</label><br>
+        <label>ExpireDate:</label><br>
+        <label id="ExpireDate_show">"N/A"</label><br>
+        <label>UsedTraffic:</label><br>
+        <label id="UsedTraffic_show">"N/A"</label><br>
+        <label>RemainingTraffic:</label><br>
+        <label id="RemainingTraffic_show">"N/A"</label><br>
+    </div>
 </body>
 <script type="text/javascript" src="{{ url_for('static', filename = 'script.js') }}"></script>
 </html>
