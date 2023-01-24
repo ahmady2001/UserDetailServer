@@ -1,3 +1,4 @@
+const title = document.getElementsByTagName('title')[0];
 const loginContainer = document.getElementById('loginContainer');
 const resultContainer = document.getElementById('resultContainer');
 const username = document.getElementById('user');
@@ -41,6 +42,7 @@ submit.onclick = e => {
     if (submit.id == "processing")
         return;
     submit.id = "processing";
+    title.innerHTML = "Account Details";
 
     // fetch(`/${user}`, {
     fetch(user, {
