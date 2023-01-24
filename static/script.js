@@ -15,14 +15,14 @@ function mainFunc() {
             document.getElementById("error_show").style.display = "none"
             document.getElementById("ErrorStatus_show").innerHTML = "No Error reported."
             var data = JSON.parse(text)
-            document.getElementById("Username_show").innerHTML = data.remark
-            document.getElementById("Status_show").innerHTML = data.enable
-            document.getElementById("Download_show").innerHTML = data.down
-            document.getElementById("Upload_show").innerHTML = data.up
-            document.getElementById("ServiceTraffic_show").innerHTML = data.total
-            document.getElementById("ExpireDate_show").innerHTML = data.expiry_time
-            document.getElementById("UsedTraffic_show").innerHTML = data.used
-            document.getElementById("RemainingTraffic_show").innerHTML = data.remain
+            document.getElementById("Username_show").innerHTML = "Username: " + data.remark
+            document.getElementById("Status_show").innerHTML = "Status: " + data.enable
+            document.getElementById("Download_show").innerHTML = "Download: " + data.down
+            document.getElementById("Upload_show").innerHTML = "Upload: " + data.up
+            document.getElementById("ServiceTraffic_show").innerHTML = "ServiceTraffic: " + data.total
+            document.getElementById("ExpireDate_show").innerHTML = "ExpireDate: " + data.expiry_time
+            document.getElementById("UsedTraffic_show").innerHTML = "UsedTraffic: " + data.used
+            document.getElementById("RemainingTraffic_show").innerHTML = "RemainingTraffic: " + data.remain
     
             document.getElementById("detailShow").style.display = "block"
           }
