@@ -101,7 +101,6 @@ submit.onclick = e => {
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    console.log(context);
                                     if (context.label == "used")
                                         return `${context.label}: ${res['used']}`;
                                     else if (context.label == "remained")

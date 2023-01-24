@@ -59,6 +59,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 #loginContainer{
@@ -85,22 +86,22 @@ body {
 
             &.d1 {
                 top: 40px;
-                left: 70px;
+                left: 20%;
                 transform: rotate(-10deg);
             }
             &.d2 {
                 top: 40px;
-                right: 100px;
+                right: 25%;
                 transform: rotate(20deg);
             }
             &.d3 {
                 top: 100px;
-                left: 120px;
+                left: 30%;
                 transform: rotate(-20deg);
             }
             &.d4 {
                 top: 100px;
-                right: 80px;
+                right: 20%;
                 transform: rotate(10deg);
             }
         }
