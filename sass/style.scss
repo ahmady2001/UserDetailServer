@@ -1,0 +1,167 @@
+$bgC: linear-gradient(244deg, rgba(10, 38, 71, 0.99) 11.04%, #205295 99.14%);
+$logincC: #003B70;
+$textLightC: rgb(243, 243, 243);
+$textC: black;
+$chartC: #FF9393;
+$chartHoverC: #cc7070;
+$inputBC: #13243F;
+$resBorderC: #40A4BA;
+
+@font-face {
+    font-family: sora;
+    src: url(Sora-VariableFont_wght.ttf);
+}
+@mixin input() {
+    background-color: $inputBC;
+    border-radius: 5px;
+    border: 1px transparent solid;
+    color: $textLightC;
+    font-family: sora;
+    font-size: 0.9rem;
+    padding: 5px;
+    height: 40px;
+    &:focus {
+        border: 1px $chartC solid;
+        outline: none;
+    }
+}
+@mixin button {
+    display: block;
+    border: 1px $chartC solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: $chartC;
+    font-family: sora, sans-serif;
+    font-size: .8rem;
+    font-weight: 500;
+    margin: 5px;
+    transition: all 0.3s ease;
+    width: max-content;
+    cursor: pointer;
+    &:hover {
+        color: $textLightC;
+        background-color: $chartHoverC ;
+        box-shadow: 0 0 5px $chartC;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: $bgC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#loginContainer{
+    background: $logincC;
+    border-radius: 20px;
+    padding: 10px 10px 50px; 
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 20px;
+    width: 450px;
+    box-shadow: 0 2px 5px #00000044;
+    
+    .Lheader {
+        height: 170px;
+        width: 100%;
+        position: relative;
+        span {
+            color: $textLightC;
+            font-family: sora, sans-serif;
+            font-weight: 500;
+            font-size: 1.3rem;
+            position: absolute;
+
+            &.d1 {
+                top: 40px;
+                left: 20%;
+                transform: rotate(-10deg);
+            }
+            &.d2 {
+                top: 40px;
+                right: 25%;
+                transform: rotate(20deg);
+            }
+            &.d3 {
+                top: 100px;
+                left: 30%;
+                transform: rotate(-20deg);
+            }
+            &.d4 {
+                top: 100px;
+                right: 20%;
+                transform: rotate(10deg);
+            }
+        }
+    }
+    input#user {
+       @include input();
+       margin-bottom: 20px;
+       text-align: center;
+    }
+    button {
+        @include button();
+        &#processing {
+            cursor: wait;
+        }
+    }
+}
+
+#resultContainer {
+    display: none; // flex
+    background: $logincC;
+    border-radius: 20px;
+    padding: 40px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 40px);
+    max-width: 550px;
+    box-shadow: 0 2px 5px #00000044;
+
+    #result {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+        width: 220px;
+        > div {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                color: $textLightC;
+                font-family: sora;
+                font-size: 0.9rem;
+
+                &:last-child {
+                    border: 1px solid $resBorderC;
+                    width: 135px;
+                    height: 45px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    .chartContainer {
+        width: 250px;
+        height: 250px;
+    }
+
+}

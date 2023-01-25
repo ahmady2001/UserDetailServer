@@ -1,46 +1,118 @@
-var submit = document.getElementById("submit")
-submit.addEventListener("click", mainFunc)
+const title = document.getElementsByTagName('title')[0];
+const loginContainer = document.getElementById('loginContainer');
+const resultContainer = document.getElementById('resultContainer');
+const username = document.getElementById('user');
+const submit = document.getElementById('submit');
+const Rchart = document.getElementById('chart');
+const Ruser = document.getElementById('Ruser');
+const Rtraffic = document.getElementById('Rtraffic');
+const Rexp = document.getElementById('Rexp');
+const Rup = document.getElementById('Rup');
+const Rdown = document.getElementById('Rdown');
 
-function mainFunc() {
-    var user = document.getElementById("user").value
-    fetch(user, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-        },
-    })
-    .then(response => response.text())
-    .then(text => {
-        try {
-            document.getElementById("error_show").style.display = "none"
-            document.getElementById("ErrorStatus_show").innerHTML = "No Error reported."
-            var data = JSON.parse(text)
-            document.getElementById("Username_show").innerHTML = "Username: " + data.remark
-            document.getElementById("Status_show").innerHTML = "Status: " + data.enable
-            document.getElementById("Download_show").innerHTML = "Download: " + data.down
-            document.getElementById("Upload_show").innerHTML = "Upload: " + data.up
-            document.getElementById("ServiceTraffic_show").innerHTML = "ServiceTraffic: " + data.total
-            document.getElementById("ExpireDate_show").innerHTML = "ExpireDate: " + data.expiry_time
-            document.getElementById("UsedTraffic_show").innerHTML = "UsedTraffic: " + data.used
-            document.getElementById("RemainingTraffic_show").innerHTML = "RemainingTraffic: " + data.remain
-    
-            document.getElementById("detailShow").style.display = "block"
-          }
-          catch(err) {
-            document.getElementById("detailShow").style.display = "none"
+const $chartC1 = "#FF9393";
+const $chartC2 = "transparent";
+const $textLightC = "rgb(243, 243, 243)";
 
-            document.getElementById("ErrorStatus_show").innerHTML = "Username is incorrect or Server not responding properly."
-            document.getElementById("error_show").style.display = "block"
-
-            document.getElementById("Username_show").innerHTML = "N/A"
-            document.getElementById("Status_show").innerHTML = "N/A"
-            document.getElementById("Download_show").innerHTML = "N/A"
-            document.getElementById("Upload_show").innerHTML = "N/A"
-            document.getElementById("ServiceTraffic_show").innerHTML = "N/A"
-            document.getElementById("ExpireDate_show").innerHTML = "N/A"
-            document.getElementById("UsedTraffic_show").innerHTML = "N/A"
-            document.getElementById("RemainingTraffic_show").innerHTML = "N/A"
-          }
-
-    })
+function traffic_parse(t){
+    if (t == "0B")
+        return 0;
+    if (t[t.length - 2] == " ")
+        return parseFloat(t);
+    if (t[t.length - 2] == "K")
+        return parseFloat(t) * 10**3;
+    if (t[t.length - 2] == "M")
+        return parseFloat(t) * 10**6;
+    if (t[t.length - 2] == "G")
+        return parseFloat(t) * 10**9;
+    if (t[t.length - 2] == "T")
+        return parseFloat(t) * 10**12;
+    if (t[t.length - 2] == "P")
+        return parseFloat(t) * 10**15;
+    if (t[t.length - 2] == "E")
+        return parseFloat(t) * 10**18;
+    if (t[t.length - 2] == "Z")
+        return parseFloat(t) * 10**21;
+    if (t[t.length - 2] == "Y")
+        return parseFloat(t) * 10**24;
 }
+submit.onclick = e => {
+    let user = username.value;
+    submit.innerHTML = "Processing";
+    if (submit.id == "processing")
+        return;
+    submit.id = "processing";
+    title.innerHTML = "Account Details";
+
+    // fetch(`/${user}`, {
+    fetch(user, {
+        method: "GET",
+    })
+    .then(response => {
+        if (!response.ok){
+            loginContainer.style.display = 'none';
+            resultContainer.style.display = 'flex';
+            submit.innerHTML = "Submit";
+            submit.id = "submit";
+        }
+        return response.json();
+    })
+    .then(res => {
+        // show data
+        Ruser.innerHTML = res['remark'];
+        Rtraffic.innerHTML = res['total'];
+        let date = new Date(res['expiry_time']);
+        Rexp.innerHTML = date.toLocaleDateString("en", {month: '2-digit', day: '2-digit'});
+        Rup.innerHTML = res['up'];
+        Rdown.innerHTML = res['down'];
+        new Chart(
+            Rchart,
+            {
+                type: 'doughnut',
+                data: {
+                    labels: ["remained", "used"],
+                    datasets: [{
+                        label: "Traffic Details",
+                        data: [traffic_parse(res['remain']), traffic_parse(res['used'])],
+                        // data: [2, 3],
+                        backgroundColor: [$chartC2, $chartC1],
+                        borderColor: [$chartC1, "transparent"],
+                        // borderRadius: 5,
+                        // borderJoinStyle: 'miter',
+                        clip: 50,
+                        hoverOffset: 5,
+                        offset: 1,
+                        weight: 100,
+                        color: $textLightC,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    radius: "90%",
+                    cutout: "50%",
+                    plugins: {
+                        colors: $textLightC,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: "#ffffff88",
+                                boxWidth: 20,
+                            },
+                            reverse: true
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.label == "used")
+                                        return `${context.label}: ${res['used']}`;
+                                    else if (context.label == "remained")
+                                        return `${context.label}: ${res['remain']}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+    });
+};

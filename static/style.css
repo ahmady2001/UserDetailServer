@@ -1,6 +1,146 @@
-#detailShow {
-  display: none;
+@font-face {
+  font-family: sora;
+  src: url(Sora-VariableFont_wght.ttf);
 }
-#error_show {
-  display: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  background: linear-gradient(244deg, rgba(10, 38, 71, 0.99) 11.04%, #205295 99.14%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#loginContainer {
+  background: #003B70;
+  border-radius: 20px;
+  padding: 10px 10px 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 20px;
+  width: 450px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2666666667);
+}
+#loginContainer .Lheader {
+  height: 170px;
+  width: 100%;
+  position: relative;
+}
+#loginContainer .Lheader span {
+  color: rgb(243, 243, 243);
+  font-family: sora, sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  position: absolute;
+}
+#loginContainer .Lheader span.d1 {
+  top: 40px;
+  left: 20%;
+  transform: rotate(-10deg);
+}
+#loginContainer .Lheader span.d2 {
+  top: 40px;
+  right: 25%;
+  transform: rotate(20deg);
+}
+#loginContainer .Lheader span.d3 {
+  top: 100px;
+  left: 30%;
+  transform: rotate(-20deg);
+}
+#loginContainer .Lheader span.d4 {
+  top: 100px;
+  right: 20%;
+  transform: rotate(10deg);
+}
+#loginContainer input#user {
+  background-color: #13243F;
+  border-radius: 5px;
+  border: 1px transparent solid;
+  color: rgb(243, 243, 243);
+  font-family: sora;
+  font-size: 0.9rem;
+  padding: 5px;
+  height: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#loginContainer input#user:focus {
+  border: 1px #FF9393 solid;
+  outline: none;
+}
+#loginContainer button {
+  display: block;
+  border: 1px #FF9393 solid;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #FF9393;
+  font-family: sora, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 5px;
+  transition: all 0.3s ease;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+}
+#loginContainer button:hover {
+  color: rgb(243, 243, 243);
+  background-color: #cc7070;
+  box-shadow: 0 0 5px #FF9393;
+}
+#loginContainer button#processing {
+  cursor: wait;
+}
+
+#resultContainer {
+  display: none;
+  background: #003B70;
+  border-radius: 20px;
+  padding: 40px;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 40px);
+  max-width: 550px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2666666667);
+}
+#resultContainer #result {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+  width: 220px;
+}
+#resultContainer #result > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#resultContainer #result > div span {
+  color: rgb(243, 243, 243);
+  font-family: sora;
+  font-size: 0.9rem;
+}
+#resultContainer #result > div span:last-child {
+  border: 1px solid #40A4BA;
+  width: 135px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+#resultContainer .chartContainer {
+  width: 250px;
+  height: 250px;
+}/*# sourceMappingURL=style.css.map */

@@ -4,29 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Account Checker</title>
+    <!-- <link rel="stylesheet" href="../css/style.min.css"> -->
+    <!-- <link rel="stylesheet" href="../static/style.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.min.css') }}">
+    <title>Login</title>
 </head>
 <body>
-    <div>
-        <label>Enter your username:</label><br><br>
-        <input type="text" id="user"><br><br>
-        <input type="submit" id="submit" value="Submit"><br><br><br>
+    <div id="loginContainer">
+        <div class="Lheader">
+            <span class="d1">Account</span>
+            <span class="d2">@</span>
+            <span class="d3">$</span>
+            <span class="d4">Checker</span>
+        </div>
+        <input type="text" id="user" placeholder="input your username">
+        <button id="submit">Submit</button>
     </div>
-    <div id="error_show">
-        <label>ErrorStatus:</label><br><br>
-        <label id="ErrorStatus_show">No Error reported.</label><br><br>
-    </div>
-    <div id="detailShow">
-        <label id="Username_show">"N/A"</label><br><br>
-        <label id="Status_show">"N/A"</label><br><br>
-        <label id="Download_show">"N/A"</label><br><br>
-        <label id="Upload_show">"N/A"</label><br><br>
-        <label id="ServiceTraffic_show">"N/A"</label><br><br>
-        <label id="ExpireDate_show">"N/A"</label><br><br>
-        <label id="UsedTraffic_show">"N/A"</label><br><br>
-        <label id="RemainingTraffic_show">"N/A"</label><br><br>
-    </div>
+    <div id="resultContainer">
+        <div id="result">
+            <div class="Ruser">
+                <span>User: </span>
+                <span id="Ruser"></span>
+            </div>
+            <div class="Rtraffic">
+                <span>Traffic: </span>
+                <span id="Rtraffic"></span>
+            </div>
+            <div class="Rexp">
+                <span>Exp Time: </span>
+                <span id="Rexp"></span>
+            </div>
+            <div class="Rup">
+                <span>Upload: </span>
+                <span id="Rup"></span>
+            </div>
+            <div class="Rdown">
+                <span>Download: </span>
+                <span id="Rdown"></span>
+            </div>
+        </div>
+        <div class="chartContainer">
+            <canvas id="chart"></canvas>
+        </div>
+    </div> 
+    <!-- <script src="../static/chart.min.js"></script>
+    <script src="../static/script.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'chart.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'script.js') }}"></script>
 </body>
-<script type="text/javascript" src="{{ url_for('static', filename = 'script.js') }}"></script>
 </html>
