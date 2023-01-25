@@ -2,6 +2,7 @@ const title = document.getElementsByTagName('title')[0];
 const loginContainer = document.getElementById('loginContainer');
 const errorHolder = document.getElementById('errorHolder');
 const resultContainer = document.getElementById('resultContainer');
+const statusBlinker = document.getElementById('dot');
 const username = document.getElementById('user');
 const submit = document.getElementById('submit');
 const Rchart = document.getElementById('chart');
@@ -66,6 +67,11 @@ submit.onclick = e => {
     .then(res => {
         // show data
         Ruser.innerHTML = res['remark'];
+        if (res['enable'] == "On" ) {
+            statusBlinker.style.backgroundColor = "green"
+        } else {
+            statusBlinker.style.backgroundColor = "#bd2448"
+        }
         Rtraffic.innerHTML = res['total'];
         if (res['expire_time'] == "Unlimited") {
             Rexp.innerHTML = res['expire_time']

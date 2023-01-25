@@ -109,6 +109,7 @@ body {
 }
 
 #resultContainer {
+  position: relative;
   display: none;
   background: #003B70;
   border-radius: 20px;
@@ -125,6 +126,7 @@ body {
   flex-flow: column nowrap;
   gap: 5px;
   width: 220px;
+  margin-bottom: 1rem;
 }
 #resultContainer #result > div {
   display: flex;
@@ -149,4 +151,36 @@ body {
 #resultContainer .chartContainer {
   width: 250px;
   height: 250px;
+  transform: translateX(20px);
 }/*# sourceMappingURL=style.css.map */
+#dot {
+  background-color: #bd2448;
+}
+.dot {
+  position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: inline-block;
+    top: 1.4rem;
+    right: 1.4rem;
+}
+.blink {
+  animation: blinker 1.5s linear infinite;
+  font-family: sans-serif;
+}
+@keyframes blinker {
+  50% {
+      opacity: 0;
+  }
+}
+
+@media screen and (max-width: 590px){
+  .dot {
+    bottom: 1.4rem;
+    top: auto;
+  }
+  #resultContainer .chartContainer {
+    transform: translateY(5px);
+  }
+}
