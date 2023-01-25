@@ -101,6 +101,12 @@ body {
 #loginContainer button#processing {
   cursor: wait;
 }
+#errorHolder {
+  display: none;
+  color: #bd2448;
+  font-size: 1.2rem;
+  transform: translateY(5px);
+}
 
 #resultContainer {
   display: none;

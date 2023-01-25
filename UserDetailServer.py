@@ -58,7 +58,7 @@ def checker(user):
     "down": downloaded,
     "up": uploaded,
     "total": totalBandwith,
-    "expiry_time": expireDate,
+    "expire_time": expireDate,
     "enable": enable,
     "used": usedTraffic,
     "remain": remainTraffic

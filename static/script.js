@@ -1,5 +1,6 @@
 const title = document.getElementsByTagName('title')[0];
 const loginContainer = document.getElementById('loginContainer');
+const errorHolder = document.getElementById('errorHolder');
 const resultContainer = document.getElementById('resultContainer');
 const username = document.getElementById('user');
 const submit = document.getElementById('submit');
@@ -49,11 +50,16 @@ submit.onclick = e => {
         method: "GET",
     })
     .then(response => {
-        if (!response.ok){
+        if (response.ok) {
             loginContainer.style.display = 'none';
             resultContainer.style.display = 'flex';
             submit.innerHTML = "Submit";
             submit.id = "submit";
+        } else {
+            submit.innerHTML = "Submit";
+            submit.id = "submit";
+            errorHolder.innerHTML = "username is incorrect!"
+            errorHolder.style.display = 'flex';
         }
         return response.json();
     })
@@ -61,8 +67,12 @@ submit.onclick = e => {
         // show data
         Ruser.innerHTML = res['remark'];
         Rtraffic.innerHTML = res['total'];
-        let date = new Date(res['expiry_time']);
-        Rexp.innerHTML = date.toLocaleDateString("en", {month: '2-digit', day: '2-digit'});
+        if (res['expire_time'] == "Unlimited") {
+            Rexp.innerHTML = res['expire_time']
+        } else {
+            let date = new Date(res['expire_time']);
+            Rexp.innerHTML = date.toLocaleDateString("en", {month: '2-digit', day: '2-digit'});
+        }
         Rup.innerHTML = res['up'];
         Rdown.innerHTML = res['down'];
         new Chart(

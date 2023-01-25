@@ -30,8 +30,10 @@ wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/templa
 
 cd /usr/local/user-detail-server/static
 
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/style.css -O style.css
-wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/script.js -O script.js
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/style.min.css -O style.min.css
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/script.min.js -O script.min.js
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/chart.min.js -O chart.min.js
+wget https://raw.githubusercontent.com/ahmady2001/UserDetailServer/master/static/Sora-VariableFont_wght.ttf -O Sora-VariableFont_wght.ttf
 
 cd /etc/systemd/system
 
