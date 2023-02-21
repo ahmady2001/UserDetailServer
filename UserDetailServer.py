@@ -17,7 +17,12 @@ def convert_size(size_bytes):
    s = round(size_bytes / p, 2)
    return "%s %s" % (s, size_name[i])
 
-@app.route('/')
+# @app.route('/')
+# def main():
+#     return render_template('index.html')
+
+
+@app.route('/acc_checker')
 def main():
     return render_template('index.html')
 
